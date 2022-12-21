@@ -14,3 +14,17 @@ print("Printing Final third list")
 res.extend(odd_elements)
 res.extend(even_elements)
 print(res)
+
+n = 3
+l = [11, 45, 8, 23, 14, 12, 78, 45, 89]
+chunks = [l[i : i + n] for i in range(0, len(l), n)]
+print(chunks)
+# [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3]]
+
+for i in range(len(chunks)):
+    chunks[i] = list(reversed(chunks[i])) # or chunks[i] = chunks[i][::-1]
+
+from functools import reduce
+out = list(reduce(lambda x, y: x + y, chunks))
+
+print(out)
